@@ -1,25 +1,19 @@
-import Ember from 'ember';
-import layout from '../templates/components/bread-crumbs';
-
-const {
-  get,
-  Component,
-  computed,
-  copy,
-  getWithDefault,
-  assert,
-  deprecate,
-  isPresent,
-  typeOf,
+import Component from '@ember/component';
+import { copy } from '@ember/object/internals';
+import { assert } from '@ember/debug';
+import { deprecate } from '@ember/application/deprecations';
+import { typeOf, isPresent } from '@ember/utils';
+import {
   setProperties,
-  getOwner,
-  A: emberArray,
-  String: { classify }
-} = Ember;
-const {
-  bool,
-  readOnly
-} = computed;
+  getWithDefault,
+  computed,
+  get
+} from '@ember/object';
+import { bool } from '@ember/object/computed';
+import { getOwner } from '@ember/application';
+import { A as emberArray } from '@ember/array';
+import { classify } from '@ember/string';
+import layout from '../templates/components/bread-crumbs';
 
 export default Component.extend({
   layout,

@@ -1,9 +1,10 @@
-import Ember from 'ember';
-
-const { Route } = Ember;
+import Route from '@ember/routing/route';
 
 export default Route.extend({
-  breadCrumb: {
-    name: 'Our Cows'
+  init() {
+    this._super(...arguments);
+    this.set('breadCrumb', {
+      name: 'Our Cows'
+    });
   }
 });

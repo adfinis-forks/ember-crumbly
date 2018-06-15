@@ -1,14 +1,7 @@
-import Ember from 'ember';
-
-const {
-  Route,
-  get,
-  set
-} = Ember;
+import Route from '@ember/routing/route';
+import { set, get } from '@ember/object';
 
 export default Route.extend({
-  breadCrumb: {},
-
   model() {
     return {
       name: 'Derek Zoolander',
@@ -18,11 +11,11 @@ export default Route.extend({
   },
 
   afterModel(model) {
-    const name = get(model, 'name');
-    const age = get(model, 'age');
-    const look = get(model, 'look');
+    let name = get(model, 'name');
+    let age = get(model, 'age');
+    let look = get(model, 'look');
 
-    const fashionModel = {
+    let fashionModel = {
       title: name,
       age,
       look

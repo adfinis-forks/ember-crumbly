@@ -1,29 +1,24 @@
-import Ember from 'ember';
-
-const {
-  Route,
-  get,
-  set
-} = Ember;
+import Route from '@ember/routing/route';
+import { set, get } from '@ember/object';
 
 export default Route.extend({
-  breadCrumb: {},
+  init() {
+    this._super(...arguments);
+    this.set('breadCrumb', {});
+  },
 
   model(params) {
-    let models = [
-      { name: 'Derek Zoolander' },
-      { name: 'Hansel McDonald' }
-    ];
+    let models = [{ name: 'Derek Zoolander' }, { name: 'Hansel McDonald' }];
 
     // jscs:disable requireCamelCaseOrUpperCaseIdentifiers
-    return models[(params.model_id - 1)];
+    return models[params.model_id - 1];
     // jscs:enable
   },
 
   afterModel(model) {
-    const name = get(model, 'name');
+    let name = get(model, 'name');
 
-    const fashionModel = {
+    let fashionModel = {
       title: name
     };
 
